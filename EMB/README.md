@@ -44,6 +44,34 @@ using the published versions of EvoMaster.
 See the [releases](https://github.com/EMResearch/EMB/releases) page.
 For example, to use version `X` of EvoMaster, you can check out the Git commit
 of EMB tagged with version `X`. 
+To see the current available tags, from a command-line you can execute:
+
+`git tag`
+
+Then, to switch to a specific tag X (e.g., `v1.0.0`), you can run:
+
+`git checkout tags/v1.0.0`
+
+Finally, if for any reason you need to switch back to the latest snapshot version, you can run:
+
+`git checkout master` 
+
+There is an issue if you try to checkout an old version. 
+Not only Java broke backward compatibility with JDK 9, but also Maven...
+If you try to build with Maven and get an error regarding
+`maven-processor-plugin`, you might have to add manually
+the following plugin dependency version:
+```
+<plugin>
+    <groupId>org.bsc.maven</groupId>
+    <artifactId>maven-processor-plugin</artifactId>
+    <version>3.3.3</version>
+</plugin>
+```
+
+Besides JDK 8, to build from Maven you will also need NPM and NodeJS installed
+on your machine (as some of the projects have GUIs built with JS).
+
 
 ## Current Case Studies
 
